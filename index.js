@@ -1,9 +1,14 @@
-var ie
-try {
-  ie = require('ie')
-} catch (e) {
-  ie = require('component-ie')
+
+
+if(typeof process === 'object' && process + '' === '[object process]'){
+    // is node
+    var ie = 'undefined';
 }
+else{
+    // not node
+    var ie = require('component-ie')
+}
+
 
 function with_query_strings (request) {
   var timestamp = Date.now().toString()
